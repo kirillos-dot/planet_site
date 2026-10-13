@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM_JS. Считываем информацию из DOM</title>
+</head>
+
+<body>
+
+    <!-- ===== НАВИГАЦИЯ (одинаковая на всех страницах) ===== -->
+    <!-- ВАЖНО: в навигации нет тегов <p>, поэтому номера абзацев паспорта начинаются с 0 -->
+    <ul>
+        <li><a href="index.html" target="_self">Главная страница</a></li>
+        <li><a href="planets.html" target="_self">Планеты</a></li>
+        <li><a href="planets.html#mars" target="_self">Планеты: переход на закладку «Марс»</a></li>
+        <li><a href="table.html" target="_self">Таблица</a></li>
+        <li><a href="forms.html" target="_self">Формы</a></li>
+        <li><a href="passport.html" target="_self"><b>DOM_JS. Считываем информацию из DOM</b></a> &larr; вы здесь</li>
+        <li><a href="passport_latin.html" target="_self">Изменяем кириллицу на латиницу по клику</a></li>
+        <li><a href="task.html" target="_self">Решение алгоритмической задачи</a></li>
+        <li><a href="https://ru.wikipedia.org/wiki/Солнечная_система" target="_blank">Википедия: Солнечная система (внешний сайт)</a></li>
+        <li>
+            <a href="index.html" target="_self"><img src="img/logo.png" height="30" alt="На главную" title="На главную"></a>
+            <a href="https://ru.wikipedia.org/wiki/Солнечная_система" target="_blank"><img src="img/wiki.png" height="30" alt="Википедия" title="Википедия (новое окно)"></a>
+        </li>
+    </ul>
+    <hr>
+    <!-- ===== КОНЕЦ НАВИГАЦИИ ===== -->
+
+
+    <h3 align="center">DOM_JS. Считываем информацию из DOM</h3>
+
+    <!-- ===== ПАСПОРТ (2-я и 3-я страницы) ===== -->
+    <!-- Каждое поле: <p>Подпись <span>значение</span></p>
+         childNodes[0] - текст подписи, childNodes[1] - <span> со значением -->
+    <table align="center" border="1" cellpadding="10" cellspacing="0" width="550" bgcolor="#f5e9e4">
+
+        <!-- 2-я страница паспорта -->
+        <tr>
+            <td colspan="2">
+                <h4 align="center">РОССИЙСКАЯ ФЕДЕРАЦИЯ</h4>
+                <p>Паспорт выдан: <span>ГУ МВД РОССИИ ПО Г. МОСКВЕ</span></p>
+                <p>Дата выдачи: <span>15.04.2021</span></p>
+                <p>Код подразделения: <span>770-001</span></p>
+            </td>
+        </tr>
+
+        <!-- 3-я страница паспорта -->
+        <tr>
+            <td width="130" align="center" valign="top">
+                <img src="img/photo.png" width="120" height="160" alt="Фото">
+            </td>
+            <td>
+                <p>Фамилия: <span>Сафонов</span></p>
+                <p>Имя: <span>Кирилл</span></p>
+                <p>Отчество: <span>Александрович</span></p>
+                <p>Пол: <span>МУЖ.</span></p>
+                <p>Дата рождения: <span>31.03.2007</span></p>
+                <p>Место рождения: <span>ГОР. МОСКВА</span></p>
+            </td>
+        </tr>
+    </table>
+
+
+    <!-- ===== Кнопка: читаем данные из DOM с помощью JS ===== -->
+    <br>
+    <div align="center">
+        <input type="button" value="Считать фамилию, имя и год рождения" onclick="readFromDOM()">
+        <br><br>
+        <b id="result">Нажмите на кнопку</b>
+    </div>
+
+
+    <!-- ===== Скриншот консоли браузера ===== -->
+    <h3>Скриншот: получение данных через Инструменты разработчика (F12 &rarr; Console)</h3>
+    <img src="img/dom_screenshot.png" width="800" alt="Скриншот консоли">
+
+    <pre>
+Команды для консоли (F12 -> вкладка Console):
+
+document.getElementsByTagName('p')[3].childNodes[1].innerText               - фамилия
+document.getElementsByTagName('p')[4].childNodes[1].innerText               - имя
+document.getElementsByTagName('p')[7].childNodes[1].innerText               - дата рождения
+document.getElementsByTagName('p')[7].childNodes[1].innerText.slice(-4)     - год рождения
+
+Нумерация абзацев &lt;p&gt; на странице:
+p[0] - паспорт выдан,  p[1] - дата выдачи,  p[2] - код подразделения,
+p[3] - фамилия,  p[4] - имя,  p[5] - отчество,  p[6] - пол,  p[7] - дата рождения,  p[8] - место рождения
+    </pre>
+
+
+    <script src="js/passport.js"></script>
+
+</body>
+
+</html>

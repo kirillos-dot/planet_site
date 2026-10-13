@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Формы. Отправляем данные на сервер</title>
+</head>
+
+<body>
+
+    <!-- ===== НАВИГАЦИЯ (одинаковая на всех страницах) ===== -->
+    <ul>
+        <li><a href="index.html" target="_self">Главная страница</a></li>
+        <li><a href="planets.html" target="_self">Планеты</a></li>
+        <li><a href="planets.html#mars" target="_self">Планеты: переход на закладку «Марс»</a></li>
+        <li><a href="table.html" target="_self">Таблица</a></li>
+        <li><a href="forms.html" target="_self"><b>Формы</b></a> &larr; вы здесь</li>
+        <li><a href="passport.html" target="_self">DOM_JS. Считываем информацию из DOM</a></li>
+        <li><a href="passport_latin.html" target="_self">Изменяем кириллицу на латиницу по клику</a></li>
+        <li><a href="task.html" target="_self">Решение алгоритмической задачи</a></li>
+        <li><a href="https://ru.wikipedia.org/wiki/Солнечная_система" target="_blank">Википедия: Солнечная система (внешний сайт)</a></li>
+        <li>
+            <a href="index.html" target="_self"><img src="img/logo.png" height="30" alt="На главную" title="На главную"></a>
+            <a href="https://ru.wikipedia.org/wiki/Солнечная_система" target="_blank"><img src="img/wiki.png" height="30" alt="Википедия" title="Википедия (новое окно)"></a>
+        </li>
+    </ul>
+    <hr>
+    <!-- ===== КОНЕЦ НАВИГАЦИИ ===== -->
+
+
+    <h3 align="center">Формы. Отправляем данные на сервер</h3>
+    <p>Данные отправляются на сервер <i>httpbin.org</i>. Он показывает в новом окне всё, что получил от формы.</p>
+
+
+    <!-- ===== ФОРМА 1. Личные контактные данные ===== -->
+    <!-- action - адрес сервера, method - способ отправки, target="_blank" - ответ в новом окне -->
+    <h3>1. Контактные данные</h3>
+    <form action="https://httpbin.org/post" method="post" target="_blank">
+        <p>Фамилия: <input type="text" name="last_name" value="Иванов"></p>
+        <p>Имя: <input type="text" name="first_name" value="Иван"></p>
+        <p>Группа: <input type="text" name="group" value="ГР-101"></p>
+        <p>Мобильный телефон: <input type="tel" name="phone" value="+7 900 123-45-67"></p>
+        <p>Электронная почта: <input type="email" name="email" value="ivanov@mail.ru"></p>
+        <p>Дата отправки сообщения: <input type="date" name="send_date" id="send_date" value="2026-10-13"></p>
+        <p>
+            <input type="reset" value="Обновить">
+            <input type="submit" value="Отправить">
+        </p>
+    </form>
+
+    <hr>
+
+
+    <!-- ===== ФОРМА 2. Заказ телескопа в магазине ===== -->
+    <!-- Все поля заполнены значениями по умолчанию (атрибуты value, checked, selected) -->
+    <h3>2. Заказ телескопа в интернет-магазине</h3>
+    <form action="https://httpbin.org/post" method="post" target="_blank">
+
+        <!-- hidden - скрытое поле, пользователь его не видит, но оно отправляется на сервер -->
+        <input type="hidden" name="shop_name" value="Магазин Солнечная система">
+        <input type="hidden" name="order_type" value="telescope_order">
+
+        <!-- text -->
+        <p>Имя покупателя: <input type="text" name="customer_name" value="Петров Пётр"></p>
+
+        <!-- select - выпадающий список -->
+        <p>Модель телескопа:
+            <select name="telescope_model">
+                <option value="Звездочёт-60" selected>Звездочёт-60 (10 000 руб.)</option>
+                <option value="Звездочёт-90">Звездочёт-90 (18 000 руб.)</option>
+                <option value="Звездочёт-130">Звездочёт-130 (30 000 руб.)</option>
+            </select>
+        </p>
+
+        <!-- number -->
+        <p>Количество: <input type="number" name="quantity" value="1" min="1" max="10"></p>
+
+        <!-- radio - можно выбрать только один вариант -->
+        <p>Способ доставки:
+            <input type="radio" name="delivery" value="courier" checked>Курьером
+            <input type="radio" name="delivery" value="pickup">Самовывоз
+        </p>
+
+        <!-- checkbox - можно выбрать несколько вариантов -->
+        <p>Дополнительно:
+            <input type="checkbox" name="extras" value="tripod" checked>Штатив
+            <input type="checkbox" name="extras" value="moon_filter">Лунный фильтр
+            <input type="checkbox" name="extras" value="star_map" checked>Карта звёздного неба
+        </p>
+
+        <!-- date -->
+        <p>Желаемая дата доставки: <input type="date" name="delivery_date" value="2026-10-20"></p>
+
+        <!-- password -->
+        <p>Пароль от личного кабинета: <input type="password" name="account_password" value="12345"></p>
+
+        <!-- textarea - многострочный текст -->
+        <p>Комментарий к заказу:<br>
+            <textarea name="order_comment" cols="50" rows="3">Позвонить за час до доставки</textarea>
+        </p>
+
+        <p>
+            <input type="reset" value="Обновить">
+            <input type="submit" value="Оформить заказ">
+        </p>
+    </form>
+
+
+    <script src="js/forms.js"></script>
+
+</body>
+
+</html>

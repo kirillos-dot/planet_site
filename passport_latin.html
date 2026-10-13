@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Изменяем кириллицу на латиницу по клику</title>
+</head>
+
+<body>
+
+    <!-- ===== НАВИГАЦИЯ (одинаковая на всех страницах) ===== -->
+    <ul>
+        <li><a href="index.html" target="_self">Главная страница</a></li>
+        <li><a href="planets.html" target="_self">Планеты</a></li>
+        <li><a href="planets.html#mars" target="_self">Планеты: переход на закладку «Марс»</a></li>
+        <li><a href="table.html" target="_self">Таблица</a></li>
+        <li><a href="forms.html" target="_self">Формы</a></li>
+        <li><a href="passport.html" target="_self">DOM_JS. Считываем информацию из DOM</a></li>
+        <li><a href="passport_latin.html" target="_self"><b>Изменяем кириллицу на латиницу по клику</b></a> &larr; вы здесь</li>
+        <li><a href="task.html" target="_self">Решение алгоритмической задачи</a></li>
+        <li><a href="https://ru.wikipedia.org/wiki/Солнечная_система" target="_blank">Википедия: Солнечная система (внешний сайт)</a></li>
+        <li>
+            <a href="index.html" target="_self"><img src="img/logo.png" height="30" alt="На главную" title="На главную"></a>
+            <a href="https://ru.wikipedia.org/wiki/Солнечная_система" target="_blank"><img src="img/wiki.png" height="30" alt="Википедия" title="Википедия (новое окно)"></a>
+        </li>
+    </ul>
+    <hr>
+    <!-- ===== КОНЕЦ НАВИГАЦИИ ===== -->
+
+
+    <h3 align="center">Изменяем кириллицу на латиницу по клику</h3>
+
+    <!-- ===== ПАСПОРТ (2-я и 3-я страницы) ===== -->
+    <!-- У изменяемых полей есть id: surname, name, patronymic -->
+    <table align="center" border="1" cellpadding="10" cellspacing="0" width="550" bgcolor="#f5e9e4">
+
+        <!-- 2-я страница паспорта -->
+        <tr>
+            <td colspan="2">
+                <h4 align="center">РОССИЙСКАЯ ФЕДЕРАЦИЯ</h4>
+                <p>Паспорт выдан: <span>ГУ МВД РОССИИ ПО Г. МОСКВЕ</span></p>
+                <p>Дата выдачи: <span>15.04.2021</span></p>
+                <p>Код подразделения: <span>770-001</span></p>
+            </td>
+        </tr>
+
+        <!-- 3-я страница паспорта -->
+        <tr>
+            <td width="130" align="center" valign="top">
+                <img src="img/photo.png" width="120" height="160" alt="Фото">
+            </td>
+            <td>
+                <p>Фамилия: <span id="surname">Сафонов</span></p>
+                <p>Имя: <span id="name">Кирилл</span></p>
+                <p>Отчество: <span id="patronymic">Александрович</span></p>
+                <p>Пол: <span>МУЖ.</span></p>
+                <p>Дата рождения: <span>31 марта 2007 г.</span></p>
+                <p>Место рождения: <span>ГОР. МОСКВА</span></p>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    <div align="center">
+        <!-- onclick - что делать при клике на кнопку -->
+        <input type="button" value="Перевести на латиницу" onclick="toLatin()">
+        <input type="button" value="Вернуть кириллицу" onclick="toCyrillic()">
+    </div>
+
+
+    <script src="js/passport_latin.js"></script>
+
+</body>
+
+</html>
